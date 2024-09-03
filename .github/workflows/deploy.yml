@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-           - name: Set up SSH
+      - name: Set up SSH
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: 198.211.97.11
@@ -21,10 +21,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/html/drusite
-            git pull origin main
+            git pull origin master
             composer install --no-dev --optimize-autoloader
-            drush updatedb -y
-            drush cache-rebuild
-
-      
-    
+            drush updb -y
+            drush cr
