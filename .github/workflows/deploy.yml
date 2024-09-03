@@ -22,6 +22,7 @@ jobs:
           script: |
             cd /var/www/html/drusite
             git pull origin master
+            composer install
             composer install --no-dev --optimize-autoloader
             drush updb -y
             drush cr
