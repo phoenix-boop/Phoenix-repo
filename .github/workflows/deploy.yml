@@ -21,8 +21,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/html/drusite
-            git pull origin master
-            composer install
-            composer install --no-dev --optimize-autoloader
+            git pull test master
+            COMPOSER_ALLOW_SUPERUSER=1 composer install
+            COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
             drush updb -y
             drush cr
