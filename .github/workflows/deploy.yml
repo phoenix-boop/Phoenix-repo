@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy changes
         run: |
-          ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
+          ssh root@198.211.97.11 << 'EOF'
             git pull origin main
             composer install --no-dev --optimize-autoloader
             drush updatedb -y
