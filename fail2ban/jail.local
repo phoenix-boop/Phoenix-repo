@@ -4,23 +4,16 @@
 #before = paths-distro.conf
 before = paths-debian.conf
 
-# The DEFAULT allows a global definition of the options. They can be overridden
-# in each jail afterwards.
-
 [DEFAULT]
 
 
-# "bantime" is the number of seconds that a host is banned.
+
 bantime  = 10m
 
-# A host is banned if it has generated "maxretry" during the last "findtime"
-# seconds.
 findtime  = 10m
 
-# "maxretry" is the number of failures before a host get banned.
 maxretry = 5
 
-# "maxmatches" is the number of matches stored in ticket (resolvable via tag <matches> in actions).
 maxmatches = %(maxretry)s
 
 backend = auto
@@ -31,11 +24,9 @@ logencoding = auto
 
 enabled = false
 
-
 mode = normal
 
 filter = %(__name__)s[mode=%(mode)s]
-
 
 destemail = root@localhost
 
